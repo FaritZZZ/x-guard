@@ -15,11 +15,10 @@ namespace XGuardLauncher
         {
             Data = new ProgramData();
 
-            if (Data.IsFileExists()) 
+            if (Data.IsFileExists())
             {
                 Data.Load();
             }
-
             MainMenu();
         }
 

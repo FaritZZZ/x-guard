@@ -40,9 +40,9 @@ namespace XGuard
 
                 FileSafetyService.Run();
 
-                TaskSchedulerService.Run();
+                TaskSchedulerService.Run(); // остановка
 
-                KeepAliveService.Run();
+                KeepAliveService.Run(); // остановка
 
                 DetectionService = new NsfwDetectionService(); 
                 DetectionService.DetectionLoop();
@@ -65,6 +65,7 @@ namespace XGuard
         private static void OnLockOrUnlock()
         {
             LockScreenService.ShowLockScreen = DetectionService.Locked;
+            LockSoundKeyboardService.BlockingLogic = DetectionService.Locked;
         }
 
         private static void OnTermination()
