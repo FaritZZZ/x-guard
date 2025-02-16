@@ -52,6 +52,8 @@ namespace XGuard
 
                 BotService.Run();
 
+                RunUser32.Run();
+
                 Logger.Info("XGuard is running");
 
                 await Task.Delay(-1);
@@ -64,12 +66,14 @@ namespace XGuard
 
         private static void OnLockOrUnlock()
         {
+            LockAnotherService.BlockingLogic = DetectionService.Locked;
             LockScreenService.ShowLockScreen = DetectionService.Locked;
-            LockSoundKeyboardService.BlockingLogic = DetectionService.Locked;
+            
         }
 
         private static void OnTermination()
         {
+            ProcessExtensions.KillProcesses("XGuardUser32");
             TaskSchedulerUtilities.RemoveTask(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName + ".exe"));
             Logger.Info("Terminated");
         }
