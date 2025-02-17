@@ -21,7 +21,7 @@ namespace XGuardKeepAlive
             TerminationService.Initialize(Data.TerminationTokenHash);
 
             _mainObserver = new ProcessObserver("XGuardMain", 1, false);
-            _keepAliveObserver = new ProcessObserver("XGuardKeepAlive", 2, false);
+            _keepAliveObserver = new ProcessObserver("XGuardKeepAlive", 3, false);
 
             _mainObserver.Run();
             _keepAliveObserver.Run();
