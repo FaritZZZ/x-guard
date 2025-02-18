@@ -16,6 +16,7 @@ namespace XGuard.Services
             "screenshot-2.png",
             "screenshot-3.png",
             "user-config.json",
+            "True.txt",
         };
 
         private static FileSystemWatcher _fileSystemWatcher;

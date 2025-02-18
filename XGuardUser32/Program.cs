@@ -32,6 +32,7 @@ public class Program
         }
 
         ControlBlocking.LoopBloking();
+        CloseWindows.Run();
         bool value =false;
         while (true)
         {
